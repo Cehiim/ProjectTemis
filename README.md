@@ -8,7 +8,7 @@
 * **Falta de acesso à Justiça** - Apesar do grande número de profissionais ligados ao sistema de Justiça (magistrados, advogados, estudantes de direito, etc.), ainda há uma lacuna na oferta de serviços jurídicos. Apenas seis mil defensores públicos atendem a demanda, o que é insuficiente para garantir acesso igualitário à Justiça.
 
 ## Introdução ao uso de LLMs (Large Language Models) e RAG (Retrieval Augmented Generation)
-Um Modelo de Linguagem é um modelo probabilístico de texto, no qual é calculado uma distribuição de pesos sobre as palavras conhecidas no seu vocabulário para gerar uma resposta influenciada por uma entrada de sequência de texto. Portanto Modelos Largos de Linguagem ou Modelos de Linguagem de Grande Escala (LLMs) seriam Modelos de Linguagem com um grande número de parâmetros, porém não há uma medida certa para se considerar largo e comumente o seu termo é usado para se referir a modelos de geração de texto no geral, além disso modelos menores como Bert podem também ser usados de referência para LLMs.
+Um modelo de linguagem é um modelo probabilístico de texto, no qual é calculado uma distribuição de pesos sobre as palavras conhecidas no seu vocabulário para gerar uma resposta influenciada por uma entrada de sequência de texto. Portanto Modelos Largos de Linguagem ou Modelos de Linguagem de Grande Escala (LLMs) seriam modelos de linguagem com um grande número de parâmetros, porém não há uma medida certa para se considerar um modelo largo e comumente o seu termo é usado para se referir a modelos de geração de texto no geral, além disso modelos menores como Bert podem também ser usados de referência para LLMs.
 
 > Eu pedi para os meus pais um animal de estimação, eles me deram um ____
 
