@@ -1,4 +1,10 @@
-# Projeto: Aplicação de LLM com RAG para pré-sentença de processos ambientais
+# Aplicação de LLM com RAG para pré-sentença de processos ambientais
+
+# Integrantes
+* Cesar Hideki Imai
+* João Victor Dallapé Madeira
+* David Varão Lima Bentes Pessoa
+
 
 # Introdução
 
