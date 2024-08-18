@@ -190,7 +190,8 @@ Comercializar motosserra ou utiliza-la em florestas e nas demais formas de veget
 sem licença ou registro da autoridade competente:
 Pena - detenção, de três meses a um ano, e multa.
 
-### Art. 52. Penetrar em Unidades de conservação conduzindo substancias ou instrumentos próprios
+### Art. 52. 
+Penetrar em Unidades de conservação conduzindo substancias ou instrumentos próprios
 para caca ou para exploração de produtos ou subprodutos florestais, sem licença da autoridade
 competente:
 Pena - detenção, de seis meses a um ano, e multa.
@@ -270,13 +271,15 @@ resultar crime mais grave.
 
 ### Art. 59. (VETADO)
 
-### Art. 60. Construir, reformar, ampliar, instalar ou fazer funcionar, em qualquer parte do território
+### Art. 60. 
+Construir, reformar, ampliar, instalar ou fazer funcionar, em qualquer parte do território
 nacional, estabelecimentos, obras ou serviços potencialmente poluidores, sem licença ou
 autorização dos órgãos ambientais competentes, ou contrariando as normas legais e
 regulamentares pertinentes:
 Pena - detenção, de um a seis meses, ou multa, ou ambas as penas cumulativamente.
 
-### Art. 61. Disseminar doença ou praga ou espécies que possam causar dano a agricultura, a
+### Art. 61. 
+Disseminar doença ou praga ou espécies que possam causar dano a agricultura, a
 pecuária, a fauna, a flora ou aos ecossistemas:
 Pena - reclusão, de um a quatro anos, e multa.
 
@@ -306,7 +309,8 @@ arqueológico, etnográfico ou monumental, sem autorização da autoridade compe
 desacordo com a concedida:
 Pena - detenção, de seis meses a um ano, e multa.
 
-### Art. 65. Pichar, grafitar ou por outro meio conspurcar edificação ou monumento urbano:
+### Art. 65. 
+Pichar, grafitar ou por outro meio conspurcar edificação ou monumento urbano:
 Pena - detenção, de três meses a um ano, e multa.
 
 parágrafo único. Se o ato for realizado em monumento ou coisa tombada em virtude do seu valor
