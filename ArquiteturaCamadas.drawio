@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.12">
+  <diagram name="Página-1" id="Nfi4oEkC8njxD8tEktTu">
+    <mxGraphModel dx="1195" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="P1SHkFLgKh6OHTHcEQz2-4" target="P1SHkFLgKh6OHTHcEQz2-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-4" value="Camada de apresentação" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=160;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="120" width="520" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-6" value="Prompt de texto" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="195" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-7" value="Chat de conversa" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="195" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="P1SHkFLgKh6OHTHcEQz2-8" target="P1SHkFLgKh6OHTHcEQz2-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-8" value="Camada de negócios" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=160;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="360" width="520" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-9" value="Encoder" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="435" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-10" value="LLM (Decoder)" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="435" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="P1SHkFLgKh6OHTHcEQz2-11" target="P1SHkFLgKh6OHTHcEQz2-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-11" value="Camada de persistência" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=160;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="600" width="520" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-12" value="Histórico de conversas" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="675" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-13" value="Configurações de interface" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="675" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-14" value="Camada de dados" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=160;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="840" width="520" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-15" value="Banco de dados" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="955" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-16" value="Arquivos PDF" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="955" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P1SHkFLgKh6OHTHcEQz2-17" value="Arquivos Markdown" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="955" width="100" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
