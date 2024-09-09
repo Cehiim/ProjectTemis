@@ -1,0 +1,924 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			    % para impressão em recto e verso usar two side (Oposto a oneside)
+	a4paper,				% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,			% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil			% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}	% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}			% Controle das cores
+\usepackage{graphicx}		% Inclusão de gráficos
+\usepackage{microtype} 		% para melhorias de justificação
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+%\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+% \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+%\renewcommand{\backref}{}
+% Define os textos da citação
+%\renewcommand*{\backrefalt}[4]{
+%	\ifcase #1 %
+%		Nenhuma citação no texto.%
+%	\or
+%		Citado na página #2.%
+%	\else
+%		Citado #1 vezes nas páginas #2.%
+%	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Aplicação de LLM com RAG para consulta de processos ambientais}
+\autor{Cesar Hideki Imai \\ David Varão Lima Bentes Pessoa \\ João Victor Dallapé Madeira}
+\local{São Paulo}
+\data{2022}
+\orientador{Lucas Cerqueira Figueiredo}
+
+\instituicao{%
+  Universidade Presbiteriana Mackenzie
+  \par
+  Faculdade de Computação e Informática}
+\tipotrabalho{Tipo do Trabalho (TCC)}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Documentação Inicial do Trabalho de Conclusão de Curso SamsAI para a disciplina de Laboratório de Engenharia de Software }
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    		pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       	% false: boxed links; true: colored links
+    		linkcolor=blue,          % color of internal links
+    		citecolor=blue,        	% color of links to bibliography
+    		filecolor=magenta,      	% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\makeatother
+% ---
+
+% ---
+% Possibilita criação de Quadros e Lista de quadros.
+% Ver https://github.com/abntex/abntex2/issues/176
+%
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%     \includepdf{fig_ficha_catalografica.pdf}
+% \end{fichacatalografica}
+
+\begin{fichacatalografica}
+	\sffamily
+	\vspace*{\fill}					% Posição vertical
+	\begin{center}					% Minipage Centralizado
+	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+	\small
+	\imprimirautor
+	%Sobrenome, Nome do autor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+	
+	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
+	
+	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+	
+	\hspace{0.5cm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+	\imprimirdata.}\\
+	
+	\hspace{0.5cm}
+		1. Palavra-chave1: Large Language Model
+		2. Palavra-chave2: Retrieval Augmented Generation
+		2. Palavra-chave3: Direito ambiental
+		I. Orientador: Lucas Cerqueira Figueiredo
+		II. Universidade Presbiteriana Mackenzie.
+		III. Faculdade de Computação e Informática.
+		IV. Aplicação de LLM com RAG para consulta de processos ambientais
+	\end{minipage}}
+	\end{center}
+\end{fichacatalografica}
+% ---
+
+% ---
+% Inserir errata
+% ---
+%\begin{errata}
+%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+%
+%\vspace{\onelineskip}
+%
+%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+%
+%\begin{table}[htb]
+%\center
+%\footnotesize
+%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%  \hline
+%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+%    \hline
+%    1 & 10 & auto-conclavo & autoconclavo\\
+%   \hline
+%\end{tabular}
+%\end{table}
+%
+%\end{errata}
+% ---
+
+% ---
+% Inserir folha de aprovação
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \begin{folhadeaprovacao}
+% \includepdf{folhadeaprovacao_final.pdf}
+% \end{folhadeaprovacao}
+%
+%\begin{folhadeaprovacao}
+%
+%  \begin{center}
+%    {\ABNTEXchapterfont\large\imprimirautor}
+%
+%    \vspace*{\fill}\vspace*{\fill}
+%    \begin{center}
+%      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+%    \end{center}
+%    \vspace*{\fill}
+%    
+%    \hspace{.45\textwidth}
+%    \begin{minipage}{.5\textwidth}
+%        \imprimirpreambulo
+%    \end{minipage}%
+%    \vspace*{\fill}
+%   \end{center}
+%        
+%   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
+%
+%   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+%   \assinatura{\textbf{Professor} \\ Convidado 1}
+%   \assinatura{\textbf{Professor} \\ Convidado 2}
+%   %\assinatura{\textbf{Professor} \\ Convidado 3}
+%   %\assinatura{\textbf{Professor} \\ Convidado 4}
+%      
+%   \begin{center}
+%    \vspace*{0.5cm}
+%    {\large\imprimirlocal}
+%    \par
+%    {\large\imprimirdata}
+%    \vspace*{1cm}
+%  \end{center}
+%  
+%\end{folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ Este trabalho é dedicado às crianças adultas que,\\
+%   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+%\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+%\begin{agradecimentos}
+%Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
+%Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+%Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
+%projeto abn\TeX\ foram extraídos de
+%\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+%contribuíram para que a produção de trabalhos acadêmicos conforme
+%as normas ABNT com \LaTeX\ fosse possível.
+%
+%Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+%da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+%Brasília (CPAI), ao grupo de usuários
+%\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+%novos voluntários do grupo
+%\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+%\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
+%contribuirão para a evolução do \abnTeX.
+%
+%\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+%\begin{epigrafe}
+%    \vspace*{\fill}
+%	\begin{flushright}
+%		\textit{``Não vos amoldeis às estruturas deste mundo, \\
+%		mas transformai-vos pela renovação da mente, \\
+%		a fim de distinguir qual é a vontade de Deus: \\
+%		o que é bom, o que Lhe é agradável, o que é perfeito.\\
+%		(Bíblia Sagrada, Romanos 12, 2)}
+%	\end{flushright}
+%\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+%\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+%\begin{resumo}
+% Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
+% objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
+% destes itens dependem do tipo de resumo (informativo ou indicativo) e do
+% tratamento que cada item recebe no documento original. O resumo deve ser
+% precedido da referência do documento, com exceção do resumo inserido no
+% próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
+% resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
+% ponto e finalizadas também por ponto.
+%
+% \textbf{Palavras-chave}: latex. abntex. editoração de texto.
+%\end{resumo}
+%
+%% resumo em inglês
+%\begin{resumo}[Abstract]
+% \begin{otherlanguage*}{english}
+%   This is the english abstract.
+%
+%   \vspace{\onelineskip}
+% 
+%   \noindent 
+%   \textbf{Keywords}: latex. abntex. text editoration.
+% \end{otherlanguage*}
+%\end{resumo}
+%
+%% resumo em francês 
+%\begin{resumo}[Résumé]
+% \begin{otherlanguage*}{french}
+%    Il s'agit d'un résumé en français.
+% 
+%   \textbf{Mots-clés}: latex. abntex. publication de textes.
+% \end{otherlanguage*}
+%\end{resumo}
+%
+%% resumo em espanhol
+%\begin{resumo}[Resumen]
+% \begin{otherlanguage*}{spanish}
+%   Este es el resumen en español.
+%  
+%   \textbf{Palabras clave}: latex. abntex. publicación de textos.
+% \end{otherlanguage*}
+%\end{resumo}
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\newpage
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de quadros
+% ---
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+  \item[ABNT] Associação Brasileira de Normas Técnicas
+  \item[abnTeX] ABsurdas Normas para TeX
+\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+\begin{simbolos}
+  \item[$ \Gamma $] Letra grega Gama
+  \item[$ \Lambda $] Lambda
+  \item[$ \zeta $] Letra grega minúscula zeta
+  \item[$ \in $] Pertence
+\end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+
+\chapter{Introdução}
+Em nosso país, o sistema judiciário desempenha um papel crucial para a sociedade: administrar a justiça. Sua função é garantir os direitos individuais, coletivos e sociais e resolver conflitos entre cidadãos, entidades e Estado. Porém, há dois grandes desafios a superar quando se trata da eficiência processual e da velocidade com que os casos são solucionados.
+
+O Conselho Nacional de Justiça (CNJ) publicou recentemente o Relatório Justiça em Números 2024. O documento afirma que existem quase  84 milhões de processos tramitando no Brasil, que só aumentam a cada ano que passa. Sendo assim, o poder Judiciário acaba sendo sobrecarregado pelo enorme volume de processos.
+
+Além disso, devido a enorme burocracia presente no poder Judiciário, os processos se tornam mais lentos, exigindo análises e pesquisas minuciosas por parte dos juízes e advogados.
+
+Portanto, a ideia deste projeto é desenvolver uma aplicação  Large Language Model (LLM) com Retrieval Augmented Generation (RAG) capaz de unificar a origem de documentos jurídicos e gerar respostas baseadas nas informações dos documentos, que tenham proximidade com a informação desejada por meio de inteligência artificial. Dessa forma, seria possível tornar o procedimento de consulta e pesquisa de documentos mais ágil e menos exaustivo para os usuários "desafogando", assim, o poder Judiciário. Contudo, é importante destacar que este trabalho se limita à área do direito ambiental.
+
+
+
+\chapter{Definição da Demanda}
+
+\section{Descrição do projeto e definição dos usuários}
+
+A fim de cumprir o objetivo deste projeto, será desenvolvida uma aplicação web, semelhante ao ChatGPT, que seja capaz de entregar ao usuário respostas contendo as informações de documentos judiciais necessários para o andamento de um processo (como legislações, acórdãos e súmulas) no âmbito do direito ambiental. Para diminuir as possíveis alucinações da Inteligência Artificial (IA), será aplicada a técnica RAG, em que se utilizará um banco de dados contendo estes documentos judiciais para que a IA o consulte. Sendo assim, os potenciais usuários de nossa aplicação são: estudantes de direito, juízes, desembargadores, procuradores e advogados.
+
+\section{Etapas para a construção da aplicação e critérios}
+\begin{enumerate}
+  \item Adquirir um conjunto de documentos jurídicos para o teste;
+  \item 
+    \begin{enumerate}
+    \item Deve ter documentos com temas ambientais;
+    \item Deve conter acórdãos;
+    \item Deve conter súmulas;
+    \end{enumerate}
+    
+  \item Escolher um LLM treinado (Sabiá-3, ChatGPT);
+  \item 
+    \begin{enumerate}
+    \item Deve ser priorizado o menor custo;
+    \item Deve ter capacidade mínima de 4000 tokens por prompt;
+    \end{enumerate}
+  \item Estudar um dos frameworks (LlamaIndex ou Langchain) para aplicação RAG;
+  \item Fazer a integração do LLM através do framework (por chave de API ou baixado localmente);
+  \item 
+    \begin{enumerate}
+    \item Deve demorar no máximo 20 segundos para gerar a resposta;
+    \end{enumerate}
+
+  \item Fazer a integração da fonte externa (conjunto de documentos) através do framework;
+  \item Integração com um banco de dados fornecido pela AWS;
+  \item Testar o sistema;
+  \item Construção da interface web da aplicação;
+  \item Integração com a interface web;
+  \item Testar o sistema com a interface.  
+\end{enumerate}
+
+\chapter{REQUISITOS DO PRODUTO}
+Neste capítulo, são apresentados os requisitos que foram levantados para este projeto na tabela a seguir. Nela, cada linha corresponde a um requisito, enquanto a coluna "ID" indica seu código de identificação, "Requisito" contém uma breve explicação do mesmo, "Tipo de requisito" classifica-o (funcional, usabilidade, software, desempenho, dados escalabilidade) e, por fim, a coluna  "Prioridade" exibe sua relevância. Os níveis de prioridade impostos são:
+\begin{itemize}
+  \item \textbf{Essencial:} são requisitos que o sistema não consegue operar em sua ausência; 
+  \item \textbf{Importante:} são requisitos que o sistema consegue funcionar em sua ausência, mas seu funcionamento fica comprometido;
+  \item \textbf{Desejável:} são requisitos opcionais, o sistema não é comprometido mesmo em sua ausência.
+\end{itemize}
+
+
+
+\index{tabelas}A \autoref{tab-nivinv} é um exemplo de tabela construída em
+\LaTeX.
+%-------------------------- FAZER A TABELA --------------------------------------------
+\begin{table}[htb]
+\ABNTEXfontereduzida
+\caption[Níveis de investigação]{Níveis de investigação.}
+\label{tab-nivinv}
+\begin{tabular}{p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}}
+  %\hline
+   \textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
+    \hline
+    Meta-nível & Filosofia\index{filosofia} da Ciência  & Epistemologia &
+    Paradigma  \\
+    \hline
+    Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
+    Ciência  & Teorias e modelos \\
+    \hline
+    Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas  \\
+   % \hline
+\end{tabular}
+\legend{Fonte: \citeonline{van86}}
+\end{table}
+
+%-------------------------- FAZER A TABELA --------------------------------------------
+\chapter{WIREFRAMES} %ADICIONAR WIREFRAMES
+\section{Tela de Login}
+\section{Tela inicial (iniciar conversa)}
+\section{Tela de conversa com a IA}
+\section{Tela com filtro para respostas}
+\section{Tela de configurações}
+\section{Tela para dar feedback ou sair}
+
+\chapter{MODELAGEM}
+\section{Diagrama de caso de uso}
+\section{Especificação dos principais casos de uso}
+    \subsection{Enviar questão para o chatbot}
+    \subsection{Ajustar tema da interface}
+    \subsection{Apagar uma conversa}
+    
+\section{Diagrama de classes de domínio}
+\section{Diagrama de sequência}
+
+\chapter{DESCRIÇÃO DA ARQUITETURA}
+\section{Arquitetura em camadas}
+\section{Pipeline}
+\section{Frameworks}
+    \subsection{LangChain}
+    \subsection{LangGraph}
+    \subsection{LlamaIndex}
+    \subsection{LangSmith}
+%------------------------------FAZER TUDO ATÉ AQUI------------------------------------
+
+Já a \autoref{tabela-ibge} apresenta uma tabela criada conforme o padrão do
+\citeonline{ibge1993} requerido pelas normas da ABNT para documentos técnicos e
+acadêmicos.
+
+\begin{table}[htb]
+\IBGEtab{%
+  \caption{Um Exemplo de tabela alinhada que pode ser longa
+  ou curta, conforme padrão IBGE.}%
+  \label{tabela-ibge}
+}{%
+  \begin{tabular}{ccc}
+  \toprule
+   Nome & Nascimento & Documento \\
+  \midrule \midrule
+   Maria da Silva & 11/11/1111 & 111.111.111-11 \\
+  \midrule 
+   João Souza & 11/11/2111 & 211.111.111-11 \\
+  \midrule 
+   Laura Vicuña & 05/04/1891 & 3111.111.111-11 \\
+  \bottomrule
+\end{tabular}%
+}{%
+  \fonte{Produzido pelos autores.}%
+  \nota{Esta é uma nota, que diz que os dados são baseados na
+  regressão linear.}%
+  \nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias
+  outras.}%
+  }
+\end{table}
+
+
+% ---
+\section{Figuras}
+% ---
+
+Figuras podem ser incorporadas de arquivos externos, como é o caso da
+\autoref{fig_grafico}. Se a figura que for incluída se tratar de um diagrama, um
+gráfico ou uma ilustração que você mesmo produza, priorize o uso de imagens
+vetoriais no formato PDF. Com isso, o tamanho do arquivo final do trabalho será
+menor, e as imagens terão uma apresentação melhor, principalmente quando
+impressas, uma vez que imagens vetorias são perfeitamente escaláveis para
+qualquer dimensão. Nesse caso, se for utilizar o Microsoft Excel para produzir
+gráficos, ou o Microsoft Word para produzir ilustrações, exporte-os como PDF e
+os incorpore ao documento conforme o exemplo abaixo. No entanto, para manter a
+coerência no uso de software livre (já que você está usando \LaTeX e \abnTeX),
+teste a ferramenta \textsf{InkScape}\index{InkScape}
+(\url{http://inkscape.org/}). Ela é uma excelente opção de código-livre para
+produzir ilustrações vetoriais, similar ao CorelDraw\index{CorelDraw} ou ao Adobe
+Illustrator\index{Adobe Illustrator}. De todo modo, caso não seja possível
+utilizar arquivos de imagens como PDF, utilize qualquer outro formato, como
+JPEG, GIF, BMP, etc. Nesse caso, você pode tentar aprimorar as imagens
+incorporadas com o software livre \textsf{Gimp}\index{Gimp}
+(\url{http://www.gimp.org/}). Ele é uma alternativa livre ao Adobe
+Photoshop\index{Adobe Photoshop}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_grafico}Gráfico produzido em Excel e salvo como PDF}
+	\begin{center}
+	    \includegraphics[scale=0.5]{abntex2-modelo-img-grafico.pdf}
+	\end{center}
+	\legend{Fonte: \citeonline[p. 24]{araujo2012}}
+\end{figure}
+
+
+% ---
+\section{Expressões matemáticas}
+% ---
+
+\index{expressões matemáticas}Use o ambiente \texttt{equation} para escrever
+expressões matemáticas numeradas:
+
+\begin{equation}
+  \forall x \in X, \quad \exists \: y \leq \epsilon
+\end{equation}
+
+Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
+\exp(-x) = 0 $, para que fiquem na mesma linha.
+
+Também é possível usar colchetes para indicar o início de uma expressão
+matemática que não é numerada.
+
+\[
+\left|\sum_{i=1}^n a_ib_i\right|
+\le
+\left(\sum_{i=1}^n a_i^2\right)^{1/2}
+\left(\sum_{i=1}^n b_i^2\right)^{1/2}
+\]
+
+Consulte mais informações sobre expressões matemáticas em
+\url{https://github.com/abntex/abntex2/wiki/Referencias}.
+
+% ---
+\section{Enumerações: alíneas e subalíneas}
+% ---
+
+\index{alíneas}\index{subalíneas}\index{incisos}Quando for necessário enumerar
+os diversos assuntos de uma seção que não possua título, esta deve ser
+subdividida em alíneas \cite[4.2]{NBR6024:2012}:
+
+\begin{alineas}
+
+  \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
+  seção, devem ser subdivididos em alíneas; 
+  
+  \item o texto que antecede as alíneas termina em dois pontos;
+  \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
+  seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
+  letras do alfabeto;
+
+  \item as letras indicativas das alíneas devem apresentar recuo em relação à
+  margem esquerda;
+
+  \item o texto da alínea deve começar por letra minúscula e terminar em
+  ponto-e-vírgula, exceto a última alínea que termina em ponto final;
+
+  \item o texto da alínea deve terminar em dois pontos, se houver subalínea;
+
+  \item a segunda e as seguintes linhas do texto da alínea começa sob a
+  primeira letra do texto da própria alínea;
+  
+  \item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas a
+  seguir:
+
+  \begin{alineas}
+     \item as subalíneas devem começar por travessão seguido de espaço;
+
+     \item as subalíneas devem apresentar recuo em relação à alínea;
+
+     \item o texto da subalínea deve começar por letra minúscula e terminar em
+     ponto-e-vírgula. A última subalínea deve terminar em ponto final, se não
+     houver alínea subsequente;
+
+     \item a segunda e as seguintes linhas do texto da subalínea começam sob a
+     primeira letra do texto da própria subalínea.
+  \end{alineas}
+  
+  \item no \abnTeX\ estão disponíveis os ambientes \texttt{incisos} e
+  \texttt{subalineas}, que em suma são o mesmo que se criar outro nível de
+  \texttt{alineas}, como nos exemplos à seguir:
+  
+  \begin{incisos}
+    \item \textit{Um novo inciso em itálico};
+  \end{incisos}
+  
+  \item Alínea em \textbf{negrito}:
+  
+  \begin{subalineas}
+    \item \textit{Uma subalínea em itálico};
+    \item \underline{\textit{Uma subalínea em itálico e sublinhado}}; 
+  \end{subalineas}
+  
+  \item Última alínea com \emph{ênfase}.
+  
+\end{alineas}
+
+
+% ---
+\section{Compilar o documento \LaTeX}
+% ---
+
+Geralmente os editores \LaTeX, como o
+TeXlipse\footnote{\url{http://texlipse.sourceforge.net/}}, o
+Texmaker\footnote{\url{http://www.xm1math.net/texmaker/}}, entre outros,
+compilam os documentos automaticamente, de modo que você não precisa se
+preocupar com isso.
+
+No entanto, você pode compilar os documentos \LaTeX usando os seguintes
+comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
+\emph{Terminal} do Mac ou do Linux:
+
+\begin{verbatim}
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   bibtex ARQUIVO_PRINCIPAL.aux
+   makeindex ARQUIVO_PRINCIPAL.idx 
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   pdflatex ARQUIVO_PRINCIPAL.tex
+\end{verbatim}
+
+
+
+\section{Divisões do documento: seção}\label{sec-divisoes}
+
+
+Esta seção testa o uso de divisões de documentos. Esta é a
+\autoref{sec-divisoes}. Veja a \autoref{sec-divisoes-subsection}.
+
+\subsection{Divisões do documento: subseção}\label{sec-divisoes-subsection}
+
+Isto é uma subseção. Veja a \autoref{sec-divisoes-subsubsection}, que é uma
+\texttt{subsubsection} do \LaTeX, mas é impressa chamada de ``subseção'' porque
+no Português não temos a palavra ``subsubseção''.
+
+\subsubsection{Divisões do documento: subsubseção}
+\label{sec-divisoes-subsubsection}
+
+Isto é uma subsubseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é outra subsubseção.
+
+\subsection{Divisões do documento: subseção}\label{sec-exemplo-subsec}
+
+Isto é uma subseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
+
+
+\subsubsubsection{Esta é uma subseção de quinto
+nível}\label{sec-exemplo-subsubsubsection}
+
+Esta é uma seção de quinto nível. Ela é produzida com o seguinte comando:
+
+\begin{verbatim}
+\subsubsubsection{Esta é uma subseção de quinto
+nível}\label{sec-exemplo-subsubsubsection}
+\end{verbatim}
+
+\subsubsubsection{Esta é outra subseção de quinto nível}\label{sec-exemplo-subsubsubsection-outro}
+
+Esta é outra seção de quinto nível.
+
+
+\paragraph{Este é um parágrafo numerado}\label{sec-exemplo-paragrafo}
+
+Este é um exemplo de parágrafo nomeado. Ele é produzida com o comando de
+parágrafo:
+
+\begin{verbatim}
+\paragraph{Este é um parágrafo nomeado}\label{sec-exemplo-paragrafo}
+\end{verbatim}
+
+A numeração entre parágrafos numeradaos e subsubsubseções são contínuas.
+
+\paragraph{Esta é outro parágrafo numerado}\label{sec-exemplo-paragrafo-outro}
+
+Esta é outro parágrafo nomeado.
+
+% ---
+\section{Este é um exemplo de nome de seção longo. Ele deve estar
+alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
+primeira palavra da primeira linha}
+% ---
+
+Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
+ e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
+
+
+% ---
+\section{Referências bibliográficas}
+% ---
+
+A formatação das referências bibliográficas conforme as regras da ABNT são um
+dos principais objetivos do \abnTeX. Consulte os manuais
+\citeonline{abntex2cite} e \citeonline{abntex2cite-alf} para obter informações
+sobre como utilizar as referências bibliográficas.
+
+%-
+\subsection{Acentuação de referências bibliográficas}
+%-
+
+Normalmente não há problemas em usar caracteres acentuados em arquivos
+bibliográficos (\texttt{*.bib}). Porém, como as regras da ABNT fazem uso quase
+abusivo da conversão para letras maiúsculas, é preciso observar o modo como se
+escreve os nomes dos autores. Na ~\autoref{tabela-acentos} você encontra alguns
+exemplos das conversões mais importantes. Preste atenção especial para `ç' e `í'
+que devem estar envoltos em chaves. A regra geral é sempre usar a acentuação
+neste modo quando houver conversão para letras maiúsculas.
+
+\begin{table}[htbp]
+\caption{Tabela de conversão de acentuação.}
+\label{tabela-acentos}
+
+\begin{center}
+\begin{tabular}{ll}\hline\hline
+acento & \textsf{bibtex}\\
+à á ã & \verb+\`a+ \verb+\'a+ \verb+\~a+\\
+í & \verb+{\'\i}+\\
+ç & \verb+{\c c}+\\
+\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+% ---
+\section{Precisa de ajuda?}
+% ---
+
+Consulte a FAQ com perguntas frequentes e comuns no portal do \abnTeX:
+\url{https://github.com/abntex/abntex2/wiki/FAQ}.
+
+Inscreva-se no grupo de usuários \LaTeX:
+\url{http://groups.google.com/group/latex-br}, tire suas dúvidas e ajude
+outros usuários.
+
+Participe também do grupo de desenvolvedores do \abnTeX:
+\url{http://groups.google.com/group/abntex2} e faça sua contribuição à
+ferramenta.
+
+\chapter{Conteúdos específicos do modelo de trabalho acadêmico}\label{cap_trabalho_academico}
+
+\section{Quadros}
+
+Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
+configurados por padrão. Verifique um exemplo de utilização:
+
+\begin{quadro}[htb]
+\caption{\label{quadro_exemplo}Exemplo de quadro}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+	Marcos & 26    & 68   & 178    \\ \hline
+	Ivone  & 22    & 57   & 162    \\ \hline
+	...    & ...   & ...  & ...    \\ \hline
+	Sueli  & 40    & 65   & 153    \\ \hline
+\end{tabular}
+\fonte{Autor.}
+\end{quadro}
+
+Este parágrafo apresenta como referenciar o quadro no texto, requisito
+obrigatório da ABNT. 
+Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
+Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{doc_referencias}
+
+
+\end{document}
+
