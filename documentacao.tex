@@ -439,20 +439,10 @@
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
-  \item[ABNT] Associação Brasileira de Normas Técnicas
-  \item[abnTeX] ABsurdas Normas para TeX
+  \item[UC] Caso de Uso
+  \item [LLM] Large Language Model
+  \item [RAG] Retrieval Augmented Generation
 \end{siglas}
-% ---
-
-% ---
-% inserir lista de símbolos
-% ---
-\begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
-\end{simbolos}
 % ---
 
 % ---
@@ -837,7 +827,7 @@ Nesta subseção, apresentaremos a especificação dos principais casos de uso d
 \legend{Fonte: Próprios autores}
 \end{table}
 %--------------------- TABELA DE FLUXO DE EXCEÇÃO NO PASSO 3 DO UC001 ----------------------------------------------
-
+\clearpage
 \subsection{Ajustar tema da interface}
 
 %--------------------- TABELA DE IDENTIFICAÇÃO DO UC002 ----------------------------------------------
@@ -879,364 +869,161 @@ Nesta subseção, apresentaremos a especificação dos principais casos de uso d
 \end{table}
 %--------------------- TABELA DE FLUXO PRINCIPAL DO UC002 ----------------------------------------------
 
-
-
-\subsection{Apagar uma conversa}
-    
-\section{Diagrama de classes de domínio}
-\section{Diagrama de sequência}
-
-\chapter{DESCRIÇÃO DA ARQUITETURA}
-\section{Arquitetura em camadas}
-\section{Pipeline}
-\section{Frameworks}
-    \subsection{LangChain}
-    \subsection{LangGraph}
-    \subsection{LlamaIndex}
-    \subsection{LangSmith}
-    
-%------------------------------FAZER TUDO ATÉ AQUI------------------------------------
-
-Já a \autoref{tabela-ibge} apresenta uma tabela criada conforme o padrão do
-\citeonline{ibge1993} requerido pelas normas da ABNT para documentos técnicos e
-acadêmicos.
-
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 2 DO UC002 ----------------------------------------------
 \begin{table}[htb]
-\IBGEtab{%
-  \caption{Um Exemplo de tabela alinhada que pode ser longa
-  ou curta, conforme padrão IBGE.}%
-  \label{tabela-ibge}
-}{%
-  \begin{tabular}{ccc}
-  \toprule
-   Nome & Nascimento & Documento \\
-  \midrule \midrule
-   Maria da Silva & 11/11/1111 & 111.111.111-11 \\
-  \midrule 
-   João Souza & 11/11/2111 & 211.111.111-11 \\
-  \midrule 
-   Laura Vicuña & 05/04/1891 & 3111.111.111-11 \\
-  \bottomrule
-\end{tabular}%
-}{%
-  \fonte{Produzido pelos autores.}%
-  \nota{Esta é uma nota, que diz que os dados são baseados na
-  regressão linear.}%
-  \nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias
-  outras.}%
-  }
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo alternativo no passo 2 do UC002]{Tabela de fluxo alternativo no passo 2 do UC002}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo alternativo - Passo 2: O usuário desiste de trocar o tema}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) No passo 2, o usuário sai das configurações clicando no X no canto superior direito & 2) Sistema retorna à tela com a conversa em que se encontrava  \\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
 \end{table}
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 2 DO UC002 ----------------------------------------------
+\clearpage
+\subsection{Apagar uma conversa}
+%--------------------- TABELA DE IDENTIFICAÇÃO DO UC003 ----------------------------------------------
+\begin{table}[htb]
 
+\ABNTEXfontereduzida
+\caption[Tabela do caso de uso apagar uma conversa]{Tabela do caso de uso apagar uma conversa}
+\label{tab-nivinv}
+\hspace*{2cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{8cm}|}
+  \hline
+    Identificador & UC003  \\ \hline
+    Nome & Apagar uma conversa \\ \hline
+    Atores & Usuário  \\ \hline
+    Sumário & O usuário apaga uma conversa do sistema que considera inútil \\ \hline
+    Pré-condições & O usuário deve estar logado na aplicação  \\ \hline
+    Pós-condições & A conversa deve estar excluída do banco de dados com as conversas daquele usuário \\ \hline
+    Regras de Negócio & 1) Todas as conversas dos usuários devem ser armazenadas num banco de dados
+    
+    2) O usuário deve ser capaz de apagar ou arquivar qualquer conversa a qualquer momento\\ \hline   
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE IDENTIFICAÇÃO DO UC003 ----------------------------------------------
 
-% ---
-\section{Figuras}
-% ---
+%--------------------- TABELA DE FLUXO PRINCIPAL DO UC003 ----------------------------------------------
+\begin{table}[htb]
 
-Figuras podem ser incorporadas de arquivos externos, como é o caso da
-\autoref{fig_grafico}. Se a figura que for incluída se tratar de um diagrama, um
-gráfico ou uma ilustração que você mesmo produza, priorize o uso de imagens
-vetoriais no formato PDF. Com isso, o tamanho do arquivo final do trabalho será
-menor, e as imagens terão uma apresentação melhor, principalmente quando
-impressas, uma vez que imagens vetorias são perfeitamente escaláveis para
-qualquer dimensão. Nesse caso, se for utilizar o Microsoft Excel para produzir
-gráficos, ou o Microsoft Word para produzir ilustrações, exporte-os como PDF e
-os incorpore ao documento conforme o exemplo abaixo. No entanto, para manter a
-coerência no uso de software livre (já que você está usando \LaTeX e \abnTeX),
-teste a ferramenta \textsf{InkScape}\index{InkScape}
-(\url{http://inkscape.org/}). Ela é uma excelente opção de código-livre para
-produzir ilustrações vetoriais, similar ao CorelDraw\index{CorelDraw} ou ao Adobe
-Illustrator\index{Adobe Illustrator}. De todo modo, caso não seja possível
-utilizar arquivos de imagens como PDF, utilize qualquer outro formato, como
-JPEG, GIF, BMP, etc. Nesse caso, você pode tentar aprimorar as imagens
-incorporadas com o software livre \textsf{Gimp}\index{Gimp}
-(\url{http://www.gimp.org/}). Ele é uma alternativa livre ao Adobe
-Photoshop\index{Adobe Photoshop}.
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo principal do UC003]{Tabela de fluxo principal do UC003}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo Principal}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) Usuário visualiza o histórico de conversas e escolhe uma das conversas para deletar &    \\ \hline
+    2) Usuário passa o mouse sobre conversa  & 3) Sistema exibe ícone de mais opções ao lado do nome da conversa \\ \hline
+    4) Usuário clica sobre o ícone de opções  & 5) Sistema exibe opções de: Renomear, Arquivar ou Excluir uma conversa \\ \hline
+    6) Usuário escolhe opção de Excluir & 7) Sistema pergunta se o usuário tem certeza de que deseja excluir aquela conversa\\ \hline
+    8) Usuário confirma que sim clicando em "Excluir" & 9) Sistema exclui conversa de seu banco de dados\\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO PRINCIPAL DO UC003 ----------------------------------------------
 
-\begin{figure}[htb]
-	\caption{\label{fig_grafico}Gráfico produzido em Excel e salvo como PDF}
-	\begin{center}
-	    \includegraphics[scale=0.5]{abntex2-modelo-img-grafico.pdf}
-	\end{center}
-	\legend{Fonte: \citeonline[p. 24]{araujo2012}}
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 6 DO UC003 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo alternativo no passo 6 do UC003]{Tabela de fluxo alternativo no passo 6 do UC003}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo alternativo - Passo 6: O usuário desiste de excluir a mensagem
+}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) No passo 6, o usuário desiste de clicar sobre o botão excluir &   \\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 6 DO UC003 ----------------------------------------------
+
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 8 DO UC003 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo alternativo no passo 8 do UC003]{Tabela de fluxo alternativo no passo 8 do UC003}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo alternativo - Passo 6: O usuário desiste de excluir a conversa}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) No passo 6, o usuário desiste de clicar sobre o botão excluir &   \\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 8 DO UC003 ----------------------------------------------
+\clearpage
+\section{Diagrama de classes de domínio}
+Nesta seção, exibimos a seguir o diagrama de classes de domínio contendo as classes identificadas no projeto (Usuário, Requisição, Modelo de IA, Codificador, Documento e Banco de Dados) e as relações entre elas.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Diagrama classes.drawio (1).png}
+    \caption{Diagrama de classes de domínio}
+    \label{fig:enter-label}
 \end{figure}
 
-
-% ---
-\section{Expressões matemáticas}
-% ---
-
-\index{expressões matemáticas}Use o ambiente \texttt{equation} para escrever
-expressões matemáticas numeradas:
-
-\begin{equation}
-  \forall x \in X, \quad \exists \: y \leq \epsilon
-\end{equation}
-
-Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
-\exp(-x) = 0 $, para que fiquem na mesma linha.
-
-Também é possível usar colchetes para indicar o início de uma expressão
-matemática que não é numerada.
-
-\[
-\left|\sum_{i=1}^n a_ib_i\right|
-\le
-\left(\sum_{i=1}^n a_i^2\right)^{1/2}
-\left(\sum_{i=1}^n b_i^2\right)^{1/2}
-\]
-
-Consulte mais informações sobre expressões matemáticas em
-\url{https://github.com/abntex/abntex2/wiki/Referencias}.
-
-% ---
-\section{Enumerações: alíneas e subalíneas}
-% ---
-
-\index{alíneas}\index{subalíneas}\index{incisos}Quando for necessário enumerar
-os diversos assuntos de uma seção que não possua título, esta deve ser
-subdividida em alíneas \cite[4.2]{NBR6024:2012}:
-
-\begin{alineas}
-
-  \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
-  seção, devem ser subdivididos em alíneas; 
-  
-  \item o texto que antecede as alíneas termina em dois pontos;
-  \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
-  seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
-  letras do alfabeto;
-
-  \item as letras indicativas das alíneas devem apresentar recuo em relação à
-  margem esquerda;
-
-  \item o texto da alínea deve começar por letra minúscula e terminar em
-  ponto-e-vírgula, exceto a última alínea que termina em ponto final;
-
-  \item o texto da alínea deve terminar em dois pontos, se houver subalínea;
-
-  \item a segunda e as seguintes linhas do texto da alínea começa sob a
-  primeira letra do texto da própria alínea;
-  
-  \item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas a
-  seguir:
-
-  \begin{alineas}
-     \item as subalíneas devem começar por travessão seguido de espaço;
-
-     \item as subalíneas devem apresentar recuo em relação à alínea;
-
-     \item o texto da subalínea deve começar por letra minúscula e terminar em
-     ponto-e-vírgula. A última subalínea deve terminar em ponto final, se não
-     houver alínea subsequente;
-
-     \item a segunda e as seguintes linhas do texto da subalínea começam sob a
-     primeira letra do texto da própria subalínea.
-  \end{alineas}
-  
-  \item no \abnTeX\ estão disponíveis os ambientes \texttt{incisos} e
-  \texttt{subalineas}, que em suma são o mesmo que se criar outro nível de
-  \texttt{alineas}, como nos exemplos à seguir:
-  
-  \begin{incisos}
-    \item \textit{Um novo inciso em itálico};
-  \end{incisos}
-  
-  \item Alínea em \textbf{negrito}:
-  
-  \begin{subalineas}
-    \item \textit{Uma subalínea em itálico};
-    \item \underline{\textit{Uma subalínea em itálico e sublinhado}}; 
-  \end{subalineas}
-  
-  \item Última alínea com \emph{ênfase}.
-  
-\end{alineas}
-
-
-% ---
-\section{Compilar o documento \LaTeX}
-% ---
-
-Geralmente os editores \LaTeX, como o
-TeXlipse\footnote{\url{http://texlipse.sourceforge.net/}}, o
-Texmaker\footnote{\url{http://www.xm1math.net/texmaker/}}, entre outros,
-compilam os documentos automaticamente, de modo que você não precisa se
-preocupar com isso.
-
-No entanto, você pode compilar os documentos \LaTeX usando os seguintes
-comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
-\emph{Terminal} do Mac ou do Linux:
-
-\begin{verbatim}
-   pdflatex ARQUIVO_PRINCIPAL.tex
-   bibtex ARQUIVO_PRINCIPAL.aux
-   makeindex ARQUIVO_PRINCIPAL.idx 
-   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
-   pdflatex ARQUIVO_PRINCIPAL.tex
-   pdflatex ARQUIVO_PRINCIPAL.tex
-\end{verbatim}
-
-
-
-\section{Divisões do documento: seção}\label{sec-divisoes}
-
-
-Esta seção testa o uso de divisões de documentos. Esta é a
-\autoref{sec-divisoes}. Veja a \autoref{sec-divisoes-subsection}.
-
-\subsection{Divisões do documento: subseção}\label{sec-divisoes-subsection}
-
-Isto é uma subseção. Veja a \autoref{sec-divisoes-subsubsection}, que é uma
-\texttt{subsubsection} do \LaTeX, mas é impressa chamada de ``subseção'' porque
-no Português não temos a palavra ``subsubseção''.
-
-\subsubsection{Divisões do documento: subsubseção}
-\label{sec-divisoes-subsubsection}
-
-Isto é uma subsubseção.
-
-\subsubsection{Divisões do documento: subsubseção}
-
-Isto é outra subsubseção.
-
-\subsection{Divisões do documento: subseção}\label{sec-exemplo-subsec}
-
-Isto é uma subseção.
-
-\subsubsection{Divisões do documento: subsubseção}
-
-Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
-
-
-\subsubsubsection{Esta é uma subseção de quinto
-nível}\label{sec-exemplo-subsubsubsection}
-
-Esta é uma seção de quinto nível. Ela é produzida com o seguinte comando:
-
-\begin{verbatim}
-\subsubsubsection{Esta é uma subseção de quinto
-nível}\label{sec-exemplo-subsubsubsection}
-\end{verbatim}
-
-\subsubsubsection{Esta é outra subseção de quinto nível}\label{sec-exemplo-subsubsubsection-outro}
-
-Esta é outra seção de quinto nível.
-
-
-\paragraph{Este é um parágrafo numerado}\label{sec-exemplo-paragrafo}
-
-Este é um exemplo de parágrafo nomeado. Ele é produzida com o comando de
-parágrafo:
-
-\begin{verbatim}
-\paragraph{Este é um parágrafo nomeado}\label{sec-exemplo-paragrafo}
-\end{verbatim}
-
-A numeração entre parágrafos numeradaos e subsubsubseções são contínuas.
-
-\paragraph{Esta é outro parágrafo numerado}\label{sec-exemplo-paragrafo-outro}
-
-Esta é outro parágrafo nomeado.
-
-% ---
-\section{Este é um exemplo de nome de seção longo. Ele deve estar
-alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
-primeira palavra da primeira linha}
-% ---
-
-Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
- e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
-
-
-% ---
-\section{Referências bibliográficas}
-% ---
-
-A formatação das referências bibliográficas conforme as regras da ABNT são um
-dos principais objetivos do \abnTeX. Consulte os manuais
-\citeonline{abntex2cite} e \citeonline{abntex2cite-alf} para obter informações
-sobre como utilizar as referências bibliográficas.
-
-%-
-\subsection{Acentuação de referências bibliográficas}
-%-
-
-Normalmente não há problemas em usar caracteres acentuados em arquivos
-bibliográficos (\texttt{*.bib}). Porém, como as regras da ABNT fazem uso quase
-abusivo da conversão para letras maiúsculas, é preciso observar o modo como se
-escreve os nomes dos autores. Na ~\autoref{tabela-acentos} você encontra alguns
-exemplos das conversões mais importantes. Preste atenção especial para `ç' e `í'
-que devem estar envoltos em chaves. A regra geral é sempre usar a acentuação
-neste modo quando houver conversão para letras maiúsculas.
-
-\begin{table}[htbp]
-\caption{Tabela de conversão de acentuação.}
-\label{tabela-acentos}
-
-\begin{center}
-\begin{tabular}{ll}\hline\hline
-acento & \textsf{bibtex}\\
-à á ã & \verb+\`a+ \verb+\'a+ \verb+\~a+\\
-í & \verb+{\'\i}+\\
-ç & \verb+{\c c}+\\
-\hline\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-% ---
-\section{Precisa de ajuda?}
-% ---
-
-Consulte a FAQ com perguntas frequentes e comuns no portal do \abnTeX:
-\url{https://github.com/abntex/abntex2/wiki/FAQ}.
-
-Inscreva-se no grupo de usuários \LaTeX:
-\url{http://groups.google.com/group/latex-br}, tire suas dúvidas e ajude
-outros usuários.
-
-Participe também do grupo de desenvolvedores do \abnTeX:
-\url{http://groups.google.com/group/abntex2} e faça sua contribuição à
-ferramenta.
-
-\chapter{Conteúdos específicos do modelo de trabalho acadêmico}\label{cap_trabalho_academico}
-
-\section{Quadros}
-
-Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
-configurados por padrão. Verifique um exemplo de utilização:
-
-\begin{quadro}[htb]
-\caption{\label{quadro_exemplo}Exemplo de quadro}
-\begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
-	Marcos & 26    & 68   & 178    \\ \hline
-	Ivone  & 22    & 57   & 162    \\ \hline
-	...    & ...   & ...  & ...    \\ \hline
-	Sueli  & 40    & 65   & 153    \\ \hline
-\end{tabular}
-\fonte{Autor.}
-\end{quadro}
-
-Este parágrafo apresenta como referenciar o quadro no texto, requisito
-obrigatório da ABNT. 
-Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
-Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
-
-
-% ----------------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS
-% ----------------------------------------------------------
-\postextual
-% ----------------------------------------------------------
-
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-\bibliography{doc_referencias}
-
+\clearpage
+\section{Diagrama de sequência}
+Nesta seção, exibimos a seguir o diagrama de sequência do caso de uso principal, enviar questão para o chatbot.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{DiagramaSequencia.drawio.png}
+    \caption{Diagrama de sequência do caso de uso enviar questão para o chatbot}
+    \label{fig:enter-label}
+\end{figure}
+
+\chapter{DESCRIÇÃO DA ARQUITETURA}
+%Breve descrição...
+
+\section{Arquitetura em camadas}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{ArquiteturaCamadas.drawio.png}
+    \caption{Diagrama UML da arquitetura em camadas}
+    \label{fig:enter-label}
+\end{figure}
+
+\clearpage
+\section{Pipeline}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Pipeline.jpg}
+    \caption{Pipeline}
+    \label{fig:enter-label}
+\end{figure}
+
+\section{Linguagens de Programação}
+A ideia de nosso projeto é construir o sistema em Python por meio do uso de frameworks adequados para desenvolvimento de aplicações com LLMs.Também será usado HTML/CSS e Javascript para construir a estrutura da interface da aplicação. Além disso, o Javascript também será usado para integrar a interface com o sistema.
+
+
+\section{Frameworks}
+    \subsection{LangChain}
+    O LangChain é um framework para desenvolvimento de aplicações que utilizam LLMs. Ele pode ser usado para criar chatbots e agentes virtuais personalizados, analisar grandes volumes de texto para extração de informação e integração com diversas APIs.
+
+    \subsection{LangGraph}
+    Já o LangGraph é uma extensão do LangChain focada para a construção de aplicações mais robustas com multi-agentes. Sua biblioteca permite a criação de sistemas complexos com vários agentes que interagem entre si, cada um executando tarefas específicas e trocando informações conforme necessário. Além disso, oferece gerenciamento automático de estado, permitindo rastrear e manter informações ao longo de várias interações, garantindo que o sistema mantenha o contexto e responda adequadamente a novas entradas.
+
+    \subsection{LlamaIndex}
+    O LlamaIndex é um framework para conectar fontes de dados personalizadas a LLMs. Sua biblioteca oferece ferramentas para ingerir, estruturar e consultar dados de fontes estruturadas e não-estruturadas para a aplicações com LLMs.
+    
+%------------------------------FAZER TUDO ATÉ AQUI------------------------------------
 
 \end{document}
 
