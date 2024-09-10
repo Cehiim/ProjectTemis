@@ -19,13 +19,15 @@
 % ---
 % Pacotes básicos 
 % ---
+\usepackage{array}
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}	% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}			% Controle das cores
 \usepackage{graphicx}		% Inclusão de gráficos
-\usepackage{microtype} 		% para melhorias de justificação
+\usepackage{microtype} 	
+% para melhorias de justificação
 % ---
 		
 % ---
@@ -518,53 +520,368 @@ A fim de cumprir o objetivo deste projeto, será desenvolvida uma aplicação we
 \end{enumerate}
 
 \chapter{REQUISITOS DO PRODUTO}
-Neste capítulo, são apresentados os requisitos que foram levantados para este projeto na tabela a seguir. Nela, cada linha corresponde a um requisito, enquanto a coluna "ID" indica seu código de identificação, "Requisito" contém uma breve explicação do mesmo, "Tipo de requisito" classifica-o (funcional, usabilidade, software, desempenho, dados escalabilidade) e, por fim, a coluna  "Prioridade" exibe sua relevância. Os níveis de prioridade impostos são:
+Neste capítulo, são apresentados os requisitos que foram levantados. Separamos os requisitos em duas tabelas, na Tabela 1, os funcionais e, na Tabela 2, os não funcionais. Em cada uma delas, cada linha corresponde a um requisito, enquanto a coluna "ID" indica seu código de identificação, "Requisito" contém uma breve explicação do mesmo, "Tipo de requisito" classifica-o (funcional, usabilidade, software, desempenho, dados escalabilidade) e, por fim, a coluna  "Prioridade" exibe sua relevância. Os níveis de prioridade impostos são:
 \begin{itemize}
-  \item \textbf{Essencial:} são requisitos que o sistema não consegue operar em sua ausência; 
-  \item \textbf{Importante:} são requisitos que o sistema consegue funcionar em sua ausência, mas seu funcionamento fica comprometido;
-  \item \textbf{Desejável:} são requisitos opcionais, o sistema não é comprometido mesmo em sua ausência.
+  \item \textbf{Essencial:} é o requisito que o sistema não consegue operar em sua ausência; 
+  \item \textbf{Importante:} é o requisitos que o sistema consegue funcionar em sua ausência, mas seu funcionamento fica comprometido;
+  \item \textbf{Desejável:} é o requisito opcional, o sistema não é comprometido mesmo em sua ausência.
 \end{itemize}
 
 
-
-\index{tabelas}A \autoref{tab-nivinv} é um exemplo de tabela construída em
-\LaTeX.
-%-------------------------- FAZER A TABELA --------------------------------------------
+% TENTEI CENTRALIZAR, MAS NÃO DEU CERTO :( ODEIO O LATEX!!
+%-------------------------- TABELA DE REQUISITOS FUNCIONAIS --------------------------------------------
 \begin{table}[htb]
+%\c
 \ABNTEXfontereduzida
-\caption[Níveis de investigação]{Níveis de investigação.}
+\caption[Requisitos funcionais]{Requisitos funcionais}
 \label{tab-nivinv}
-\begin{tabular}{p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}}
-  %\hline
-   \textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
+\hspace*{-1.4cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{10cm}|>{\centering\arraybackslash}m{2.25cm}|>{\centering\arraybackslash}m{2.2cm}|}
+  \hline
+   \textbf{ID} & \textbf{Requisitos funcionais}  & \textbf{Tipo de Requisito}  & \textbf{Prioridade}  \\
     \hline
-    Meta-nível & Filosofia\index{filosofia} da Ciência  & Epistemologia &
-    Paradigma  \\
+    [RF01]& O sistema deve armazenar informações presentes em acórdãos para consulta.  & Funcional &
+    Essencial  \\
     \hline
-    Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
-    Ciência  & Teorias e modelos \\
+    [RF02] & O sistema deve armazenar informações presentes em súmulas para consulta. & Funcional  & Essencial \\
     \hline
-    Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas  \\
-   % \hline
+    [RF03] & O sistema deve armazenar informações presentes em orientações jurisprudenciais para consulta. & Funcional & Essencial \\
+    \hline
+    [RF04] & O sistema deve atender palavras-chaves para a busca. & Funcional & Essencial \\
+    \hline
+    [RF05] & O sistema deve atender filtro por tipo de documento (legislação, acórdão, súmula, etc). & Funcional & Essencial \\
+    \hline
+    [RF06] & O sistema deve atender filtro por tribunal (STF, STJ, TJs, etc). & Funcional & Essencial \\
+    \hline
+    [RF07] & O sistema deve atender filtro por estado. & Funcional & Essencial \\
+    \hline
+    [RF08] & O sistema deve armazenar informações presentes em legislações para consulta & Funcional & Importante \\
+    \hline
+    [RF09] & O sistema deve armazenar informações presentes em sentenças para consulta.. & Funcional & Importante \\
+    \hline
+    [RF10] & O sistema deve armazenar informações presentes em decisões monocráticas para consulta. & Funcional & Importante \\
+    \hline
+    [RF11] & O sistema deve armazenar informações presentes em decisões interlocutórias para consulta. & Funcional & Importante \\
+    \hline
+    [RF12] & O sistema deve armazenar informações presentes em despachos para consulta. & Funcional & Importante \\
+    \hline
+    [RF13] & O sistema deve atender filtro por nome do relator & Funcional & Importante \\
+    \hline
+    [RF14] & O sistema deve atender filtro por tipo de processo (trabalhista, penal, etc). & Funcional & Importante \\
+    \hline
+    [RF15] & O sistema deve atender filtro por data. & Funcional & Importante \\
+    \hline
+    [RF16] & O sistema deve elaborar modelos de peças jurídicas. & Funcional & Importante \\
+    \hline
+    [RF17] & O sistema deve retornar a identificação dos documentos com suas ementas resumidas. & Funcional & Importante \\
+    \hline
+    [RF18] & O sistema deve retornar a descrição das legislações usadas numa decisão. & Funcional & Importante \\
+    \hline
+    [RF19] & O sistema deve resumir os argumentos de uma decisão. & Funcional & Importante \\
+    \hline
+    [RF20] & O sistema deve resumir a conclusão de uma decisão. & Funcional & Importante \\
+    \hline
+    [RF21] & O sistema deve auxiliar na interpretação de trechos de texto & Funcional & Importante \\
+    \hline
+    [RF22] & O usuário deve poder ajustar o tema da interface (tema claro ou escuro) & Funcional & Importante \\
+    \hline
+    [RF23] & O usuário deve poder fazer o download dos documentos recuperados. & Funcional & Importante \\
+    \hline
+    [RF24] & O usuário deve poder visualizar o histórico de conversas. & Funcional & Importante \\
+    \hline
+    [RF25] & O sistema deve retornar a identificação dos documentos com os trechos que tenham proximidade com a busca. & Funcional & Desejável \\
+    \hline
+    [RF26] & O sistema deve ter a opção dos usuários enviarem feedback (sugestões de melhorias e correções). & Funcional & Desejável \\
+    \hline
+    [RF27] & O sistema deve conter recursos text-to-speech (texto para fala) e speech-to-text (fala para texto). & Funcional & Desejável \\
+    \hline
+    [RF28] & O sistema deve ter versão mobile (acessível no celular). & Funcional & Desejável \\
+    \hline
+    [RF29] & O usuário deve poder visualizar o histórico de conversas. & Funcional & Desejável \\
+    \hline
+    [RF30] & O usuário deve poder apagar e arquivar conversas & Funcional & Desejável \\
+    \hline
 \end{tabular}
-\legend{Fonte: \citeonline{van86}}
+\legend{Fonte: Próprios autores}
 \end{table}
+%-------------------------- TABELA DE REQUISITOS FUNCIONAIS --------------------------------------------
+
+%-------------------------- TABELA DE REQUISITOS NÃO FUNCIONAIS --------------------------------------------
+\begin{table}[htb]
+%\c
+\ABNTEXfontereduzida
+\caption[Requisitos não funcionais]{Requisitos não funcionais}
+\label{tab-nivinv}
+\hspace*{-1.7cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{10cm}|>{\centering\arraybackslash}m{2.25cm}|>{\centering\arraybackslash}m{2.2cm}|}
+  \hline
+   \textbf{ID} & \textbf{Requisitos não funcionais}  & \textbf{Tipo de Requisito}  & \textbf{Prioridade}  \\
+    \hline
+    [RNF01]& O sistema deve ser integrado com uma interface web simples com o prompt de entrada em destaque & Usabilidade &
+    Essencial  \\
+    \hline
+    [RNF02] & O sistema deve ser compatível com diferentes navegadores web (Mozilla, Chrome, Opera, etc.) & Software & Essencial \\
+    \hline
+    [RFN03] & O sistema deve utilizar apenas os dados com proximidade igual ou maior a 50\% do texto de entrada e dar uma saída de “informações insuficientes” caso não tenha. & Dados & Essencial \\
+    \hline
+    [RNF04] & O sistema deve lidar com no mínimo 3 acessos simultâneos. & Escalabilidade & Essencial \\
+    \hline
+    [RNF05] & O sistema deve ser integrado com um serviço de banco de dados fornecido pela AWS para armazenar e consultar dados. & Dados & Essencial \\
+    \hline
+    [RNF06] & O sistema deve ser gerenciável para adição de novos dados de fontes externas. & Dados & Essencial \\
+    \hline
+    [RNF07] & O sistema deve ter login de contas para salvar as configurações e conversas. & Usabilidade & Essencial \\
+    \hline
+    [RNF08] & O código deve ser bem documentado, de modo a facilitar futuras atualizações e manutenção do sistema. & Software & Importante \\
+    \hline
+    [RNF09] & O sistema deve fazer uso de criptografia para proteger as conversas dos usuários. & Segurança & Importante \\
+    \hline
+    [RNF10] & O sistema deve ter um tempo de resposta de no máximo 20 segundos. & Usabilidade & Importante \\
+    \hline
+    [RNF11] & O sistema deve ser aprovado pelo PageSpeed Insights. & Desempenho & Importante \\
+    \hline
+    [RNF12] & O sistema deve ser responsivo, ou seja, que se adapta automaticamente ao dispositivo do utilizador, seja um desktop, tablet ou telemóvel. & Usabilidade & Importante \\
+    \hline
+    [RNF13] & O sistema deve evitar cores relacionadas ao daltonismo. & Usabilidade & Desejável \\
+    \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%-------------------------- TABELA DE REQUISITOS NÃO FUNCIONAIS --------------------------------------------
 
 %-------------------------- FAZER A TABELA --------------------------------------------
 \chapter{WIREFRAMES} %ADICIONAR WIREFRAMES
+Com base nos requisitos funcionais descritos no capítulo 2, elaboramos protótipos de baixa fidelidade (wireframes) das telas da aplicação.
+
 \section{Tela de Login}
+Assim que o usuário entrar no site, ele deverá efetuar o login com seu email de acesso e respectiva senha.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Tela de Login.png}
+    \caption{Tela de Login}
+    \label{fig:enter-label}
+\end{figure}
+
 \section{Tela inicial (iniciar conversa)}
+Após efetuar o login com sucesso, ele é convidado a iniciar uma nova conversa com a IA através de um chat, em que o usuário pode interagir escrevendo uma mensagem na caixa de entrada de texto no canto inferior da tela. Para enviar, ele deve clicar no ícone de enviar mensagem. 
+
+Além disso, é também possível fazer upload de arquivos e mandá-los clicando no "clips" à esquerda. Também, ao invés de escrever, pode-se falar por voz a mensagem a ser enviada clicando no microfone à direita.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Tela Inicial.png}
+    \caption{Tela para iniciar uma conversa com o chatbot}
+    \label{fig:enter-label}
+\end{figure}
+
 \section{Tela de conversa com a IA}
+Assim que o usuário envia uma mensagem ao modelo, ele retorna uma resposta, que pode ser ouvida clicando-se no ícone do alto-falante.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Tela de Conversa com a IA.png}
+    \caption{Tela exibindo a conversa entre o usuário e a IA}
+    \label{fig:enter-label}
+\end{figure}
+
 \section{Tela com filtro para respostas}
+Para obter respostas mais precisas, o usuário pode utilizar um filtro, clicando no ícone localizado no canto superior esquerdo. Nele, é possível filtrar os processos pelos: tipos documentos, os tipos de decisão, os tipos de processo, tribunais, estado, período, relator e advogado do caso.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Tela de Filtro.png}
+    \caption{Tela exibindo as opções de filtragem para pesquisa}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
 \section{Tela de configurações}
+Caso o usuário sinta necessidade de configurar a aplicação, ele pode acessar as configurações pelo ícone no canto esquerdo inferior da tela. Nesta tela, ele será capaz de alternar o tema da aplicação entre claro e escuro, além de poder descrever
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Tela de configurações.png}
+    \caption{Tela para o usuário configurar a interface e as respostas da IA}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
 \section{Tela para dar feedback ou sair}
+O usuário pode, a qualquer momento, fornecer um feedback sobre sua experiência com o SamsAI ou sair da aplicação clicando em sua imagem de perfil e escolhendo uma destas opções.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Tela de feedback.png}
+    \caption{Tela para dar um feedback ou sair da aplicação}
+    \label{fig:enter-label}
+\end{figure}
+
+
 
 \chapter{MODELAGEM}
+Neste capítulo, a fim de aprofundar a interpretação acerca do projeto, apresentaremos: diagrama de casos de uso, especificações dos principais casos de uso, diagrama de classes de domínio e, por fim, um diagrama de sequência baseado nos principais casos de uso.
+
 \section{Diagrama de caso de uso}
+Neste diagrama, apresentamos os casos de uso que podem ser feitos pelo único ator existente, o usuário.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Diagrama de casos de uso.png}
+    \caption{Diagrama de casos de uso do projeto}
+    \label{fig:enter-label}
+\end{figure}
+
 \section{Especificação dos principais casos de uso}
-    \subsection{Enviar questão para o chatbot}
-    \subsection{Ajustar tema da interface}
-    \subsection{Apagar uma conversa}
+Nesta subseção, apresentaremos a especificação dos principais casos de uso do projeto: enviar questão para o chatbot, ajustar interface e apagar uma conversa.
+
+\subsection{Enviar questão para o chatbot}
+%--------------------- TABELA DE IDENTIFICAÇÃO DO UC001 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela do caso de uso enviar questão para o chatbot]{Tabela do caso de uso enviar questão para o chatbot}
+\label{tab-nivinv}
+\hspace*{2.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{8cm}|}
+  \hline
+    Identificador & UC001  \\ \hline
+    Nome & Enviar questão para o chatbot  \\ \hline
+    Atores & Usuário  \\ \hline
+    Sumário & O usuário envia uma questão ao sistema e este lhe responde com as informações solicitadas  \\ \hline
+    Pré-condições & -  \\ \hline
+    Pós-condições & Uma resposta é fornecida pelo sistema  \\ \hline
+    Regras de Negócio & 1) O texto inserido pelo usuário pode ter no máximo 4000 caracteres. 
+     
+    2) A resposta deve ser baseada em documentos com pelo menos 50\% de proximidade. \\ \hline
+    
+    
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE IDENTIFICAÇÃO DO UC001 ----------------------------------------------
+
+%--------------------- TABELA DE FLUXO PRINCIPAL DO UC001 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo principal do UC001]{Tabela de fluxo principal do UC001}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo Principal}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) O usuário digita e envia um texto pelo prompt. & 2) O texto aparece no chat, o prompt é bloqueado e o sistema gera uma notificação que a resposta está sendo gerada.  \\ \hline
+      & 3) O sistema faz a conversão da entrada de texto para uma representação numérica e consulta dados próximos da fonte externa.  \\ \hline
+      & 4) O sistema retorna os dados com maior proximidade e aplica no LLM.  \\ \hline
+      & 5) Com base nos dados recebidos, o LLM gera uma resposta embaixo do texto de entrada.  \\ \hline
+      & 6) O sistema indica a disponibilidade para uma nova questão. \\ \hline
+    
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO PRINCIPAL DO UC001 ----------------------------------------------
+
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 2 DO UC001 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo alternativo no passo 2 do UC001]{Tabela de fluxo alternativo no passo 2 do UC001}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo alternativo - Passo 2: O usuário quer interromper a geração de resposta}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) Entre os passos 1 e 6, o usuário clica na notificação para “parar de responder”. & 2) O sistema interrompe o processo de geração de resposta.  \\ \hline
+      & 3) O sistema indica a disponibilidade para uma nova questão.  \\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO ALTERNATIVO NO PASSO 2 DO UC001 ----------------------------------------------
+
+%--------------------- TABELA DE FLUXO DE EXCEÇÃO NO PASSO 1 DO UC001 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo de exceção no passo 1 do UC001]{Tabela de fluxo de exceção no passo 1 do UC001}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo de exceção - Passo 1: Quantidade máxima de caracteres no prompt atingida}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) No passo 1, o usuário insere mais de 4000 caracteres no prompt & 2) O sistema indica que a quantidade máxima de caracteres no prompt foi atingida e limita o texto até 4000 caracteres  \\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO DE EXCEÇÃO NO PASSO 1 DO UC001 ----------------------------------------------
+
+%--------------------- TABELA DE FLUXO DE EXCEÇÃO NO PASSO 3 DO UC001 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo de exceção no passo 3 do UC001]{Tabela de fluxo de exceção no passo 3 do UC001}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo de exceção - Passo 3: Não há dados com pelo menos 50\% de proximidade}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+     1) No passo 1, o usuário insere um texto & 2) O sistema não encontra dados com pelo menos 50\% de proximidade com o texto de entrada  \\ \hline
+      & 3) O sistema instrui ao LLM gerar uma resposta de “informações não encontradas”.  \\ \hline
+      & 4) O LLM gera a resposta embaixo do texto de entrada.  \\ \hline
+      & 5) O sistema indica a disponibilidade para uma nova questão.  \\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO DE EXCEÇÃO NO PASSO 3 DO UC001 ----------------------------------------------
+
+\subsection{Ajustar tema da interface}
+
+%--------------------- TABELA DE IDENTIFICAÇÃO DO UC002 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela do caso de uso ajustar tema da interface]{Tabela do caso de uso ajustar tema da interface}
+\label{tab-nivinv}
+\hspace*{2cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{8cm}|}
+  \hline
+    Identificador & UC002  \\ \hline
+    Nome & Ajustar tema da interface  \\ \hline
+    Atores & Usuário  \\ \hline
+    Sumário & O usuário altera o tema da interface de escuro para claro ou de claro para escuro \\ \hline
+    Pré-condições & -  \\ \hline
+    Pós-condições & O tema da interface se torna aquele definido pelo usuário \\ \hline
+    Regras de Negócio & 1) Os dois únicos temas disponíveis para a interface são o claro e escuro \\ \hline   
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE IDENTIFICAÇÃO DO UC002 ----------------------------------------------
+
+%--------------------- TABELA DE FLUXO PRINCIPAL DO UC002 ----------------------------------------------
+\begin{table}[htb]
+
+\ABNTEXfontereduzida
+\caption[Tabela de fluxo principal do UC002]{Tabela de fluxo principal do UC002}
+\label{tab-nivinv}
+\hspace*{1.5cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{6cm}|}
+  \hline
+  \multicolumn{2}{|>{\centering\arraybackslash}m{12cm}|}{\textbf{Fluxo Principal}} \\ \hline
+    Ações do ator & Ações do sistema  \\ \hline
+    1) Usuário clica no ícone de configurações & 2) Sistema exibe a tela de configurações  \\ \hline
+     3) Usuário muda o tema da interface para o tema desejado  & 4) Sistema adota o novo tema escolhido \\ \hline
+\end{tabular}
+\legend{Fonte: Próprios autores}
+\end{table}
+%--------------------- TABELA DE FLUXO PRINCIPAL DO UC002 ----------------------------------------------
+
+
+
+\subsection{Apagar uma conversa}
     
 \section{Diagrama de classes de domínio}
 \section{Diagrama de sequência}
@@ -577,6 +894,7 @@ Neste capítulo, são apresentados os requisitos que foram levantados para este 
     \subsection{LangGraph}
     \subsection{LlamaIndex}
     \subsection{LangSmith}
+    
 %------------------------------FAZER TUDO ATÉ AQUI------------------------------------
 
 Já a \autoref{tabela-ibge} apresenta uma tabela criada conforme o padrão do
