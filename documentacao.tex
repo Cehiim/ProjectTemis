@@ -41,7 +41,7 @@
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
-
+\usepackage{cite}
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
@@ -69,7 +69,7 @@
 \titulo{Aplicação de LLM com RAG para consulta de processos ambientais}
 \autor{Cesar Hideki Imai \\ David Varão Lima Bentes Pessoa \\ João Victor Dallapé Madeira}
 \local{São Paulo}
-\data{2022}
+\data{2024}
 \orientador{Lucas Cerqueira Figueiredo}
 
 \instituicao{%
@@ -982,8 +982,8 @@ Nesta seção, exibimos a seguir o diagrama de sequência do caso de uso princip
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\linewidth]{DiagramaSequencia.drawio.png}
-    \caption{Diagrama de sequência do caso de uso enviar questão para o chatbot}
+    \includegraphics[width=1\linewidth]{Diagrama de Sequencia.drawio.png}
+    \caption{Diagrama de Sequência}
     \label{fig:enter-label}
 \end{figure}
 
@@ -1016,6 +1016,7 @@ A ideia de nosso projeto é construir o sistema em Python por meio do uso de fra
 \section{Frameworks}
     \subsection{LangChain}
     O LangChain é um framework para desenvolvimento de aplicações que utilizam LLMs. Ele pode ser usado para criar chatbots e agentes virtuais personalizados, analisar grandes volumes de texto para extração de informação e integração com diversas APIs.
+    
 
     \subsection{LangGraph}
     Já o LangGraph é uma extensão do LangChain focada para a construção de aplicações mais robustas com multi-agentes. Sua biblioteca permite a criação de sistemas complexos com vários agentes que interagem entre si, cada um executando tarefas específicas e trocando informações conforme necessário. Além disso, oferece gerenciamento automático de estado, permitindo rastrear e manter informações ao longo de várias interações, garantindo que o sistema mantenha o contexto e responda adequadamente a novas entradas.
@@ -1023,7 +1024,25 @@ A ideia de nosso projeto é construir o sistema em Python por meio do uso de fra
     \subsection{LlamaIndex}
     O LlamaIndex é um framework para conectar fontes de dados personalizadas a LLMs. Sua biblioteca oferece ferramentas para ingerir, estruturar e consultar dados de fontes estruturadas e não-estruturadas para a aplicações com LLMs.
     
+    As informações podem ser encontradas \cite{https://docs.llamaindex.ai/en/stable/}
 %------------------------------FAZER TUDO ATÉ AQUI------------------------------------
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{doc_referencias}
+\section{Referências bibliográficas}
+% ---
+
+A formatação das referências bibliográficas conforme as regras da ABNT são um
+dos principais objetivos do \abnTeX. Consulte os manuais
+\citeonline{abntex2cite} e \citeonline{abntex2cite-alf} para obter informações
+sobre como utilizar as referências bibliográficas.
 
 \end{document}
 
