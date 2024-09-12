@@ -991,7 +991,15 @@ Nesta seção, exibimos a seguir o diagrama de sequência do caso de uso princip
 %Breve descrição...
 
 \section{Arquitetura em camadas}
+A arquitetura em camadas é composta por quatro níveis:
 
+Camada de Apresentação: Responsável pela interação com o usuário, inclui o prompt de texto e a interfaces do chat.
+
+Camada de Negócios: Gerencia a lógica de aplicação, incluindo o codificador para pré-processamento de dados, o decodificador para gerar respostas, histórico de conversas e configurações de interface.
+
+Camada de Persistência: Cuida do armazenamento e recuperação de dados, utilizando um objeto para acesso de dados de documentos armazenados fora do sistema.
+
+Camada de Dados: Envolve a gestão de dados, abrangendo bancos de dados, arquivos PDF e arquivos Markdown.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{ArquiteturaCamadas.drawio.png}
@@ -1015,14 +1023,14 @@ A ideia de nosso projeto é construir o sistema em Python por meio do uso de fra
 
 \section{Frameworks}
     \subsection{LangChain}
-    O LangChain é um framework para desenvolvimento de aplicações que utilizam LLMs. Ele pode ser usado para criar chatbots e agentes virtuais personalizados, analisar grandes volumes de texto para extração de informação e integração com diversas APIs.
+    O LangChain é um framework para desenvolvimento de aplicações que utilizam LLMs. Ele pode ser usado para criar chatbots e agentes virtuais personalizados, analisar grandes volumes de texto para extração de informação e integração com diversas APIs.\cite{langchain}
     
 
     \subsection{LangGraph}
-    Já o LangGraph é uma extensão do LangChain focada para a construção de aplicações mais robustas com multi-agentes. Sua biblioteca permite a criação de sistemas complexos com vários agentes que interagem entre si, cada um executando tarefas específicas e trocando informações conforme necessário. Além disso, oferece gerenciamento automático de estado, permitindo rastrear e manter informações ao longo de várias interações, garantindo que o sistema mantenha o contexto e responda adequadamente a novas entradas.
+    Já o LangGraph é uma extensão do LangChain focada para a construção de aplicações mais robustas com multi-agentes. Sua biblioteca permite a criação de sistemas complexos com vários agentes que interagem entre si, cada um executando tarefas específicas e trocando informações conforme necessário. Além disso, oferece gerenciamento automático de estado, permitindo rastrear e manter informações ao longo de várias interações, garantindo que o sistema mantenha o contexto e responda adequadamente a novas entradas.\cite{langgraph}
 
     \subsection{LlamaIndex}
-    O LlamaIndex é um framework para conectar fontes de dados personalizadas a LLMs. Sua biblioteca oferece ferramentas para ingerir, estruturar e consultar dados de fontes estruturadas e não-estruturadas para a aplicações com LLMs.
+    O LlamaIndex é um framework para conectar fontes de dados personalizadas a LLMs. Sua biblioteca oferece ferramentas para ingerir, estruturar e consultar dados de fontes estruturadas e não-estruturadas para a aplicações com LLMs.\cite{llamaindex}
     
 %------------------------------FAZER TUDO ATÉ AQUI------------------------------------
 % ----------------------------------------------------------
@@ -1039,3 +1047,4 @@ A ideia de nosso projeto é construir o sistema em Python por meio do uso de fra
 
 
 \end{document}
+
