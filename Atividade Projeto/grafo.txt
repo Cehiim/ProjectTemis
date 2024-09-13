@@ -1,4 +1,4 @@
-2
+6
 50
 0 "seletiva"
 1 "controle"
