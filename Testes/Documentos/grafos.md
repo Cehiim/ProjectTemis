@@ -1,50 +1,50 @@
-\n seletiva
-\n controle
-\n clima
-\n ambiental
-\n impacto
-\n aquecimento
-\n limpa
-\n éolica
-\n renovação
-\n política
-\n proteção
-\n água
-\n verde
-\n energia
-\n preservação
-\n coleta
-\n solo
-\n equilíbrio
-\n constituição
-\n biodiversidade
-\n jurisprudência
-\n poluição
-\n recurso
-\n consumo
-\n natural
-\n resíduos
-\n legislação
-\n ambiente
-\n fauna
-\n solar
-\n ecossistema
-\n meio
-\n carbono
-\n desmatamento
-\n reciclagem
-\n processo
-\n ilegal
-\n florestas
-\n desenvolvimento
-\n neutralidade
-\n flora
-\n sustentabilidade
-\n global
-\n renovável
-\n consciente
-\n saúde
-\n sustentável
-\n educação
-\n gestão
-\n emissões
+seletiva
+controle
+clima
+ambiental
+impacto
+aquecimento
+limpa
+eólica
+renovação
+política
+proteção
+água
+verde
+energia
+preservação
+coleta
+solo
+equilíbrio
+constituição
+biodiversidade
+jurisprudência
+poluição
+recurso
+consumo
+natural
+resíduos
+legislação
+ambiente
+fauna
+solar
+ecossistema
+meio
+carbono
+desmatamento
+reciclagem
+processo
+ilegal
+florestas
+desenvolvimento
+neutralidade
+flora
+sustentabilidade
+global
+renovável
+consciente
+saúde
+sustentável
+educação
+gestão
+emissões
