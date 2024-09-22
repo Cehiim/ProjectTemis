@@ -1,0 +1,1 @@
+Link para o site estático: http://samsai.com.s3-website-us-east-1.amazonaws.com/
