@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/usuario/repo.git'
+                git branch: 'main', url: 'https://github.com/Cehiim/ProjectTemis.git'
             }
         }
         stage('Build') {
