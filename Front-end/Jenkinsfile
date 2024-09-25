@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+		cd Front-end
                 sh 'npm install'
             }
         }
