@@ -1,10 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/usuario/repo.git'
+            }
+        }
         stage('Build') {
             steps {
-		cd Front-end
-                sh 'npm install'
+                dir('Front-end') {  // Navegar para a subpasta
+                    sh 'npm install'
+                }
             }
         }
         stage('Test') {
