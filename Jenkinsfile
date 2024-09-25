@@ -1,14 +1,6 @@
 pipeline {
     agent any
     stages {
-	stage('Checkout') {
-      steps {
-        git branch: 'main', url: 'https://github.com/Cehiim/ProjectTemis'
-      }
-    }
-
-
-
         stage('Build') {
             steps {
 		cd Front-end
