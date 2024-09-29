@@ -17,14 +17,16 @@ pipeline {
         
         stage('Test') {
             steps {
-                    sh '/var/lib/jenkins/workspace/Pipeline Projeto/Front-end/jenkins/scripts/test.sh'
+                    dir('/var/lib/jenkins/workspace/Pipeline Projeto/Front-end/jenkins/scripts') {
+                    sh 'test.sh'
+                    }
             }
         }
         stage('Deliver') { 
             steps {
-                sh '/var/lib/jenkins/workspace/Pipeline Projeto/Front-end/jenkins/scripts/deliver.sh' 
+                sh 'deliver.sh' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh '/var/lib/jenkins/workspace/Pipeline Projeto/Front-end/jenkins/scripts/kill.sh' 
+                sh 'kill.sh' 
             }
         }
     }
