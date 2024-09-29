@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('../../package.json') {
-                    pwd
+                    sh 'pwd'
                     sh 'npm install'
                     }
                 }
