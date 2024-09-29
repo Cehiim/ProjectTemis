@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                     dir('/var/lib/jenkins/workspace/Pipeline Projeto/Front-end/jenkins/scripts') {
-                    sh 'pwd'
+                    sh 'ls'
                     sh 'test.sh'
                     }
             }
