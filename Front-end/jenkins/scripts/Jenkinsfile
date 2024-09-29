@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                dir('../../') {
+                dir('/var/lib/jenkins/workspace/Pipeline Projeto/Front-end') {
                     sh 'pwd'
                     sh 'npm install'
                     }
