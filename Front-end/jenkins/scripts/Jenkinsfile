@@ -26,6 +26,7 @@ pipeline {
             steps {
                 dir('/var/lib/jenkins/workspace/Pipeline Projeto/Front-end/jenkins/scripts') {
                     sh './deliver.sh'
+                    //Lembrar de clicar em Proceed pra matar o processo
                     input message: 'Finished using the web site? (Click "Proceed" to continue)' 
                     sh './kill.sh'
                     }
