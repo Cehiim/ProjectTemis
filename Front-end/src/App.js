@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css'; //oláaa 
+import './App.css'; //escreve
 
 class App extends Component {
   render() {
