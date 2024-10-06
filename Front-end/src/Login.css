@@ -1,0 +1,79 @@
+.TelaLogin {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #171717;
+  height: 100vh;
+}
+
+.title{
+  color: white;
+  font-weight: 600;
+  padding-top: 83px;
+  font-size: 70px;
+}
+
+.box{
+  margin-top: 40px;
+  background-color: #722F37;
+  width: 632px;
+  height: 536px;
+  border-radius: 20px;
+}
+
+.box > h1{
+  text-align: center;
+  padding-top: 51px;
+  font-size: 40px;
+  color: white;
+  font-weight: 500;
+}
+
+.Entradas{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 60px;
+  color: white;
+}
+
+.Entradas h3{
+  padding-bottom: 10px;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.Entradas > .Email{
+  margin-bottom: 40px;
+}
+
+.Entradas input{
+  width: 366px;
+  height: 43px;
+  border-radius: 10px;
+  border-style: none;
+}
+
+.semSenha{
+  display: flex;
+  margin-left: 136px;
+  margin-top: 15px;
+  color: white;
+  font-size: 15px;
+}
+
+.semSenha > .cadastro{
+  margin-right: 90px;
+}
+
+button{
+  width: 165px;
+  height: 51px;
+  color: black;
+  font-family: 'Inter';
+  font-size: 30px;
+  border-style: none;
+  border-radius: 10px;
+  margin-top: 35px;
+  margin-left: 340px;
+}
