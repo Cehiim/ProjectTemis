@@ -9,8 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('/var/lib/jenkins/workspace/Pipeline Projeto/Front-end') {
-                    sh 'pwd'
-                    sh 'npm install'
+                    sh 'npm install @testing-library/jest-dom @testing-library/react @testing-library/user-event -D'
                     }
                 }
             }
