@@ -20,7 +20,8 @@ function Input({ onToggleText }) {
         height: '52px',
         marginLeft: '1vw',
         marginRight: '2vw',
-        marginTop: '0'
+        marginTop: '0',
+        cursor: 'pointer',
 
     };
 
@@ -39,6 +40,7 @@ function Input({ onToggleText }) {
         marginLeft: '1.5vw',
         marginRight: '2vw',
         marginTop: '0',
+        cursor: 'pointer',
     };
 
     const PaperPlaneStyle = {
@@ -47,6 +49,7 @@ function Input({ onToggleText }) {
         height: '55px',
         marginTop: '0',
         marginLeft: '0vw',
+        cursor: 'pointer',
     };
 
     const ImageStyle = {
