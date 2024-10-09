@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import BemVindo from './BemVindo.js';
 import Input from './Input.js'
 import menu_hamburguer from './assets/Menu.png'
@@ -27,6 +28,14 @@ function Conversa(){
         justifyContent: 'center',
     }
 
+        // Define um estado para controlar se o texto está visível ou não
+        const [isVisible, setIsVisible] = useState(true);
+
+        // Função para alternar a visibilidade do texto
+        const toggleText = () => {
+          setIsVisible(false); // Inverte o valor de isVisible
+        };
+
     return(
         <body>
         <div style = {TopoStyle}>
@@ -35,10 +44,10 @@ function Conversa(){
             <img src={profile_photo}/>
         </div>
 
-        <BemVindo/>
+        <BemVindo isVisible={isVisible}/>
 
         <div style = {InputStyle}>
-            <Input/>
+            <Input onToggleText={toggleText}/>
         </div>
 
     </body>

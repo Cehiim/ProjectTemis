@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import './index.css';
 import Clips from './assets/Attach.png';
 import Microphone from './assets/Microphone.png'
 import Paper_Plane from './assets/Paper_Plane.png'
-import registerServiceWorker from './registerServiceWorker';
 
-function Input() {
+function Input({ onToggleText }) {
     const DivStyle = {
         backgroundColor: '#2F2F2F',
         width: '90vw',
@@ -67,7 +65,7 @@ function Input() {
             <img src={Microphone} style={ImageStyle}/>
         </button>
 
-        <button style={PaperPlaneStyle}>
+        <button style={PaperPlaneStyle} onClick={onToggleText}>
             <img src={Paper_Plane} style={ImageStyle}/>
         </button>
     </div>
