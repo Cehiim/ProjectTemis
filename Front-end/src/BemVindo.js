@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 

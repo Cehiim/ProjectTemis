@@ -23,3 +23,11 @@ h1{
   margin-left: 5vh;
   margin-right: 158vh;
 }
+
+.Input{
+  position: fixed; /* Posiciona o elemento em relação à janela de visualização */
+  left: 10vh;
+  bottom: 30px; 
+  display: flex;
+  justify-content: center;
+}
