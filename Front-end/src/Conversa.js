@@ -3,6 +3,7 @@ import BemVindo from './BemVindo.js';
 import Input from './Input.js'
 import menu_hamburguer from './assets/Menu.png'
 import profile_photo from './assets/Profile_Photo.png'
+import Chat from './Chat'; 
 
 function Conversa(){
     const TopoStyle = {
@@ -43,7 +44,7 @@ function Conversa(){
             <h1 style = {TitleStyle}>SamsAI</h1> 
             <img src={profile_photo}/>
         </div>
-
+        <Chat/>
         <BemVindo isVisible={isVisible}/>
 
         <div style = {InputStyle}>
