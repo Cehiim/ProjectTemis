@@ -44,9 +44,9 @@ function Conversa(){
             <h1 style = {TitleStyle}>SamsAI</h1> 
             <img src={profile_photo}/>
         </div>
-        <Chat/>
+        
         <BemVindo isVisible={isVisible}/>
-
+        <Chat/>
         <div style = {InputStyle}>
             <Input onToggleText={toggleText}/>
         </div>
