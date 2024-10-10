@@ -20,14 +20,15 @@ function Conversa(){
         marginLeft: '5vh',
         marginRight: '70vw',
     }
-
+    /*
     const InputStyle={
-        position: 'fixed', /* Posiciona o elemento em relação à janela de visualização */
-        left: '10vh',
+        position: 'fixed', // Posiciona o elemento em relação à janela de visualização
+        left: '5vw',
+        width: '10vw',
         bottom: '30px',
         display: 'flex',
         justifyContent: 'center',
-    }
+    } */
 
         // Define um estado para controlar se o texto está visível ou não
         const [isVisible, setIsVisible] = useState(true);
@@ -37,6 +38,14 @@ function Conversa(){
           setIsVisible(false); // Inverte o valor de isVisible
         };
 
+        /*
+        <BemVindo isVisible={isVisible}/> //Objetivo é incluir a mensagem de Bem Vindo, mas deixa pra depois
+        <Chat/>
+        <div style = {InputStyle}>
+            <Input onToggleText={toggleText}/>
+        </div>
+        */
+
     return(
         <body>
         <div style = {TopoStyle}>
@@ -44,12 +53,11 @@ function Conversa(){
             <h1 style = {TitleStyle}>SamsAI</h1> 
             <img src={profile_photo}/>
         </div>
+
         
-        <BemVindo isVisible={isVisible}/>
-        <Chat/>
-        <div style = {InputStyle}>
-            <Input onToggleText={toggleText}/>
-        </div>
+            <Chat/>
+        
+        
 
     </body>
     );

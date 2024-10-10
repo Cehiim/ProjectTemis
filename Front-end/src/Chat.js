@@ -84,11 +84,26 @@ function Chat() {
         });
     }
 
+    const containerStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center', // Centraliza verticalmente também
+        height: '80vh',
+        width: '100vw',
+    };
+
+    const ChatStyle={
+        height: '80vh',
+        width: '80vw',
+        overflow: 'hidden',
+        bottom: '30px',
+    }
+
 
     //Precisa fixar o Input e estilizá-lo
     return (
-        <div>
-            <MainContainer>
+        <div style = {containerStyle}>
+            <MainContainer style = {ChatStyle}>
                 <ChatContainer> 
                     <MessageList
                     scrollBehavior= "smooth"
