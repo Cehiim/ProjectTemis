@@ -1,9 +1,16 @@
+/* Remover a borda do container quando não tiver nada pra fazer...*/
+
+.cs-chat-container.cs-chat-container{
+    background-color: transparent;
+}
+
 .cs-message__content.cs-message__content{
     background-color: #722F37;
 }
 
 .cs-message--outgoing .cs-message__content.cs-message__content{
     background-color: #DCDCDC;
+    border-radius: .7em .7em .7em .7em;
 }
 
 .cs-message__html-content{
@@ -15,5 +22,37 @@
 .cs-message--outgoing .cs-message__html-content{
     background-color: transparent;
     color: black;
+}
+
+.cs-chat-container .cs-message-input.cs-message-input {
+    border: none;
+    background-color: #2F2F2F;
+    border-radius: .7em .7em .7em .7em;
+}
+
+.cs-message-input__content-editor-wrapper.cs-message-input__content-editor-wrapper{
+    background-color: transparent;
+}
+
+.cs-message-input__content-editor.cs-message-input__content-editor{
+    background-color: transparent;
+    color: white;
+}
+
+.cs-message-input__content-editor-container.cs-message-input__content-editor-container{
+    background-color: transparent;
+
+}
+
+.cs-message-input__content-editor[contenteditable="true"]:empty::before {
+    color: rgba(255, 255, 255, 0.59) !important;
+}
+
+.cs-message-input__tools.cs-message-input__tools{
+    background-color: transparent;
+}
+
+svg{
+    background-color: transparent;
     
 }
