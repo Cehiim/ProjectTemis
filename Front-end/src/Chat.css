@@ -1,0 +1,19 @@
+.cs-message__content.cs-message__content{
+    background-color: #722F37;
+}
+
+.cs-message--outgoing .cs-message__content.cs-message__content{
+    background-color: #DCDCDC;
+}
+
+.cs-message__html-content{
+    background-color: transparent;
+    color:white;
+    
+}
+
+.cs-message--outgoing .cs-message__html-content{
+    background-color: transparent;
+    color: black;
+    
+}

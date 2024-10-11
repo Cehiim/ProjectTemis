@@ -44,7 +44,7 @@ function Conversa(){
         <div style = {InputStyle}>
             <Input onToggleText={toggleText}/>
         </div>
-        <Chat/>
+        
         */
 
     return(
@@ -55,11 +55,7 @@ function Conversa(){
             <img src={profile_photo}/>
         </div>
 
-        <BemVindo isVisible={isVisible}/>
-        
-        <div style = {InputStyle}>
-            <Input onToggleText={toggleText}/>
-        </div>
+        <Chat/>
     
     </body>
     );

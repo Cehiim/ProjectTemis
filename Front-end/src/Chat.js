@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LangflowClient from './LangflowClient';
+import './Chat.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
@@ -97,13 +98,15 @@ function Chat() {
         width: '80vw',
         overflow: 'hidden',
         bottom: '30px',
+        border: 'none',
+        backgroundColor: 'transparent',
     }
 
 
     //Precisa fixar o Input e estilizá-lo
     return (
         <div style = {containerStyle}>
-            <MainContainer style = {ChatStyle}>
+            <MainContainer style={ChatStyle}>
                 <ChatContainer> 
                     <MessageList
                     scrollBehavior= "smooth"
