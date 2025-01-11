@@ -1,0 +1,8 @@
+git clone git@github.com:david-pessoa/ProjectTemisFront.git
+cd ProjectTemisFront/
+sudo service docker start
+docker build -t react-app:dev .
+docker images (só para ver as imagens)
+docker run -p 80:3000 <image ID>
+
+(IP do site 52.45.15.19)
